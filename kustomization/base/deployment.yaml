@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mytestprofileimage-deployment
+  namespace: demoforprofile
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: demoforprofile
+  template:
+    metadata:
+      labels:
+        deployment: demoforprofile
+    spec:
+      containers:
+        - name: demoforprofile
+          image: mytestprofileimage
+          #            env:
+          #              - name:
+          ports:
+            - containerPort: 8889
+              name: http
+          livenessProbe:
+            initialDelaySeconds: 90
+            periodSeconds: 60
+            timeoutSeconds: 30
+            failureThreshold: 3
+            successThreshold: 1
+            httpGet:
+              path: /test
+              port: 8889
+          readinessProbe:
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 1
+            failureThreshold: 3
+            successThreshold: 1
+            httpGet:
+              path: /test
+              port: 8889
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: 250m
+              memory: 256Mi

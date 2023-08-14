@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mytestprofileimage-deployment
+  namespace: demoforprofile
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: demoforprofile
+  template:
+    metadata:
+      labels:
+        deployment: demoforprofile
+    spec:
+      containers:
+        - name: demoforprofile
+          image: 007mouse/mytestprofileimage:001
+          env:
+            - name: spring.profiles.active
+              value: dev
+

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: ${APP_NAME:unnamed}
+  profiles:
+    active: '@spring.profiles.active@'
+server:
+  port: 8889
+
+testdata:
+  key: ${testdatakey:unikey}
+  value: ${testdatavalue:univalue}
+
+hivemq:
+  eseEnabled: ${HIVE_ESE_ENABLED:true}
