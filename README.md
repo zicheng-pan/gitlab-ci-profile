@@ -19,7 +19,7 @@ spring:
     active: '@spring.profiles.active@'
 ```
 在maven build的时候通过 ```mvn clean install -Dspring.profiles.active=dev```的方式来指定profile
-4. 在运行环境中配置环境变量 ```spring.profiles.active``` [项目中使用的这种方式，在不同的deployment-environment-variables.yaml配置文件中配置]
+4. 在运行环境中配置环境变量 ```spring.profiles.active``` <b><font color="red">[项目中使用的这种方式，在不同的deployment-environment-variables.yaml配置文件中配置]</font></b>
 <br>
 可以在项目中使用代码来指定
 ```System.setProperty("spring.profiles.active", "dev");```
