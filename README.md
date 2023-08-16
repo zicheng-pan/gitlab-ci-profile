@@ -80,7 +80,7 @@ testdata:
   value: ${testdatavalue:univalue}
 ```
 在具体环境的profile中可以设置具体的值。
-```aidl
+```
 testdata:
   key: devKey
   value: devValue
