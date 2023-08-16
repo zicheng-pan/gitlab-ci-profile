@@ -1,2 +1,6 @@
 hivemq:
   eseEnabled: false
+
+testdata:
+  key: devKey
+  value: devValue

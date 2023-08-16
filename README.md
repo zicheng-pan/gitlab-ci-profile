@@ -73,3 +73,23 @@ spring:
 
 
 ### 2. 项目中的变量值怎么传递
+在项目中的默认profile中，可以使用临时变量值。
+```
+testdata:
+  key: ${testdatakey:unikey}
+  value: ${testdatavalue:univalue}
+```
+在具体环境的profile中可以设置具体的值。
+```aidl
+testdata:
+  key: devKey
+  value: devValue
+```
+在项目中可以设置配置类```@Configuration```然后自动装载配置，可以在项目中直接使用
+```aidl
+    @Value("${testdata.key}")
+    String key;
+
+    @Value("${testdata.value}")
+    String value;
+```
